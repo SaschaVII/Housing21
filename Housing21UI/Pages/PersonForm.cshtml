@@ -1,0 +1,23 @@
+﻿@page
+@model Housing21UI.Pages.PersonFormModel
+@{
+    <form method="post">
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+    </div>
+    <div>
+        <label asp-for="TelephoneNumber"></label>
+        <input asp-for="TelephoneNumber" />
+    </div>
+    <div>
+        <label asp-for="DateOfBirth"></label>
+        <input asp-for="DateOfBirth" />
+    </div>
+    <button type="submit">Submit</button>
+</form>
+}
