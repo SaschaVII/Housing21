@@ -4,7 +4,8 @@
     ViewBag.Title = "People";
 }
 <h1>People</h1>
-<table>
+<div class="table-responsive">
+    <table>
     <thead>
         <tr>
             <th>Name</th>
@@ -23,6 +24,7 @@
         </tr>
     }
 </table>
+</div>
 <form method="post">
     <button type="submit" asp-page-handler="ExportToCSV">Export CSV</button>
 </form>
