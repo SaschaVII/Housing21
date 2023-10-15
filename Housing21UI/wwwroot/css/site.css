@@ -16,3 +16,88 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* ||| CUSTOM CSS ||| */
+
+/* Form */
+input {
+    display: block;
+    border: 2px solid grey;
+    border-radius: 15px;
+    padding: 5px 15px;
+}
+
+input:focus {
+    outline: 2px grey solid;
+}
+
+label::after {
+    content: ":";
+}
+
+.custom-form-group {
+    margin-bottom: 10px;
+}
+
+button[type=submit] {
+    background-color: grey;
+    color: white;
+    font-weight: 700;
+    border-radius: 15px;
+    border: 2px grey solid;
+    padding: 6px 20px;
+    margin-top: 15px;
+}
+
+button[type=submit]:hover {
+    background-color: darkgrey;
+    border-color: darkgrey;
+    box-shadow: rgba(0, 0, 0, .5) 0px 0px 5px;
+}
+
+/* Table */
+table, th, td {
+}
+
+th:last-child {
+    border-radius: 0px 15px 15px 0px;
+}
+
+th:first-child {
+    border-radius: 15px 0px 0px 15px;
+}
+
+td:last-child {
+    border-radius: 0px 15px 15px 0px;
+}
+
+td:first-child {
+    border-radius: 15px 0px 0px 15px;
+}
+
+th, td {
+    padding: 5px 10px;
+}
+
+th {
+    background-color: grey;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+tr:nth-child(2n) {
+    background-color: lightgrey;
+}
+
+
+/* Validation */
+input.input-validation-error {
+    border-color: red;
+    outline: 2px solid red;
+}
+
+span.field-validation-error {
+    color: red;
+    margin-top: 2px;
+}

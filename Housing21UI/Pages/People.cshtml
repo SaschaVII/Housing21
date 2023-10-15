@@ -1,0 +1,29 @@
+﻿@page
+@model Housing21UI.Pages.PeopleModel
+@{
+    ViewBag.Title = "People";
+}
+<h1>People</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Telephone Number</th>
+            <th>Date of Birth</th>
+        </tr>
+    </thead>
+    @foreach (var person in Model.People)
+    {
+        <tr>
+            <td>@person.Name</td>
+            <td>@person.Email</td>
+            <td>@person.TelephoneNumber</td>
+            <td>@person.DateOfBirth.ToString("d")</td>
+        </tr>
+    }
+</table>
+<form method="post">
+    <button type="submit" asp-page-handler="ExportToCSV">Export CSV</button>
+</form>
+<a asp-page="/PersonForm" style="display: block; margin-top: 20px;">Back</a>
