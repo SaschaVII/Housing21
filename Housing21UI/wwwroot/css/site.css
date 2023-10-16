@@ -35,6 +35,11 @@ h1 {
 }
 
 /* Form */
+.form-wrapper {
+    max-width: 500px;
+    margin:auto;
+}
+
 input {
     display: block;
     width: 100%;
@@ -77,6 +82,14 @@ table {
     width: 100%;
 }
 
+tr {
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+
+tr:last-child {
+    border-bottom: none;
+}
+
 th:last-child {
     border-radius: 0px 15px 15px 0px;
 }
@@ -85,29 +98,27 @@ th:first-child {
     border-radius: 15px 0px 0px 15px;
 }
 
-td:last-child {
-    border-radius: 0px 15px 15px 0px;
+th, td {
+    padding: 10px 20px;
+}
+
+th {
+    background-color: grey;
+    color: white;
+    padding: 10px 20px;
 }
 
 td:first-child {
     border-radius: 15px 0px 0px 15px;
 }
 
-th, td {
-    padding: 5px 10px;
+td:last-child {
+    border-radius: 0px 15px 15px 0px;
 }
 
-th {
-    background-color: grey;
-    color: white;
-    padding-top: 10px;
-    padding-bottom: 10px;
+tr:hover {
+    background-color: rgba(0,0,0,0.1);
 }
-
-tr:nth-child(2n) {
-    background-color: lightgrey;
-}
-
 
 /* Validation */
 input.input-validation-error {

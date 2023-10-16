@@ -3,27 +3,29 @@
 @{
     ViewBag.Title = "Person Form";
 }
-<h1>Please fill out:</h1>
-<form method="post" class="person-form">
-    <div class="custom-form-group">
-        <label asp-for="Person.Name"></label>
-        <input asp-for="Person.Name" />
-        <span asp-validation-for="Person.Name"></span>
-    </div>
-    <div class="custom-form-group">
-        <label asp-for="Person.Email"></label>
-        <input asp-for="Person.Email" />
-        <span asp-validation-for="Person.Email"></span>
-    </div>
-    <div class="custom-form-group">
-        <label asp-for="Person.TelephoneNumber"></label>
-        <input asp-for="Person.TelephoneNumber" />
-        <span asp-validation-for="Person.TelephoneNumber"></span>
-    </div>
-    <div class="custom-form-group">
-        <label asp-for="Person.DateOfBirth"></label>
-        <input asp-for="Person.DateOfBirth" type="date" />
-        <span asp-validation-for="Person.DateOfBirth"></span>
-    </div>
-    <button type="submit">Submit</button>
-</form>
+<div class="form-wrapper">
+    <h1>Please fill out:</h1>
+    <form method="post" class="person-form">
+        <div class="custom-form-group">
+            <label asp-for="Person.Name"></label>
+            <input asp-for="Person.Name" />
+            <span asp-validation-for="Person.Name"></span>
+        </div>
+        <div class="custom-form-group">
+            <label asp-for="Person.Email"></label>
+            <input asp-for="Person.Email" />
+            <span asp-validation-for="Person.Email"></span>
+        </div>
+        <div class="custom-form-group">
+            <label asp-for="Person.TelephoneNumber"></label>
+            <input asp-for="Person.TelephoneNumber" />
+            <span asp-validation-for="Person.TelephoneNumber"></span>
+        </div>
+        <div class="custom-form-group">
+            <label asp-for="Person.DateOfBirth"></label>
+            <input asp-for="Person.DateOfBirth" type="date" />
+            <span asp-validation-for="Person.DateOfBirth"></span>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
