@@ -1,21 +1,20 @@
+using Housing21UI.DataAccess;
 using Housing21UI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Data.SqlClient;
-using System.Data;
 using System.Text;
 
 namespace Housing21UI.Pages
 {
     public class PeopleModel : PageModel
     {
-        private readonly IConfiguration _config;
+        private readonly IDbContext _dbContext;
 
         public List<PersonModel> People { get; set; }
 
-        public PeopleModel(IConfiguration config)
+        public PeopleModel(IDbContext dbContext)
         {
-            _config = config;
+            _dbContext = dbContext;
         }
 
         public IActionResult OnBack()
@@ -36,30 +35,7 @@ namespace Housing21UI.Pages
 
         private void GetPeople()
         {
-            People = new List<PersonModel>();
-            string connectionString = _config.GetConnectionString("UserInformationDB");
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand("psel_GetPersons", connection);
-                command.CommandType = CommandType.StoredProcedure;
-
-                connection.Open();
-                command.ExecuteNonQuery();
-                using (var reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        PersonModel person = new PersonModel();
-                        person.Name = reader.GetString("Name");
-                        person.Email = reader.GetString("Email");
-                        person.TelephoneNumber = reader.GetString("TelephoneNumber");
-                        person.DateOfBirth = reader.GetDateTime("DateOfBirth");
-
-                        People.Add(person);
-                    }
-                }
-            }
+            People = _dbContext.GetPeople();
         }
 
         public IActionResult ExportToCSV()

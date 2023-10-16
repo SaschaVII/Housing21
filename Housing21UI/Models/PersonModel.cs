@@ -1,7 +1,6 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Housing21UI.DataAccess;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
 
 namespace Housing21UI.Models
 {
@@ -29,28 +28,9 @@ namespace Housing21UI.Models
         [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }
 
-        public int PostPerson(IConfiguration _config)
+        public int PostPerson(IDbContext dbContext)
         {
-            string connectionString = _config.GetConnectionString("UserInformationDB");
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand("pins_Person", connection);
-                command.CommandType = CommandType.StoredProcedure;
-
-                // Parameters
-                command.Parameters.AddWithValue("@Name", Name);
-                command.Parameters.AddWithValue("@Email", Email);
-                command.Parameters.AddWithValue("@TelephoneNumber", TelephoneNumber);
-                command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
-
-
-                connection.Open();
-
-                // return number of rows affected
-                // currently stills throws an error if stored proc fails
-                return command.ExecuteNonQuery();
-            }
+            return dbContext.AddPerson(this);
         }
     }
 }

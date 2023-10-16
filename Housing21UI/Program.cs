@@ -1,3 +1,5 @@
+using Housing21UI.DataAccess;
+
 namespace Housing21UI
 {
     public class Program
@@ -8,6 +10,11 @@ namespace Housing21UI
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+
+            // Add data access
+            // Extracted an interface from DbContext for loose coupling
+            // DbContext concrete implementation
+            builder.Services.AddSingleton<IDbContext, DbContext>();
 
             var app = builder.Build();
 
